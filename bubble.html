@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handler Bubble</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Expore Event Bubble</h1>
+        <ul id="my-list">
+            <li class="item">Lorem ipsum dolor sit amet.</li>
+            <li class="item">Aliquid necessitatibus nostrum ipsum nisi.</li>
+            <li class="item">Alias perspiciatis esse voluptate aperiam.</li>
+            <li class="item">Provident quis reprehenderit quae eum.</li>
+            <li class="item">Ex eligendi alias quibusdam nam?</li>
+        </ul>
+    </div>
+    <button id="addBtn">Add New Item</button>
+
+    <script>
+        /* // --event  bubble and stop event bubbling --//
+        // --container --//
+        let div = document.getElementById("container").addEventListener("click",function(){
+            console.log("div is clicked");
+        });
+        // --lists event --//
+        let ul = document.getElementById("my-list").addEventListener("click",function(){
+            console.log("ul clicked")
+        });
+        // --item event --//
+        let li = document.querySelector(".item").addEventListener("click", function(){
+            console.log("item clicked");
+           ///--stop bubble up event --//
+            event.stopImmediatePropagation(); //--stop all bubble element --//
+        }); */
+
+
+        // --add element --//
+
+        /*// --remove child element --//
+        let items = document.getElementsByClassName("item");
+        // console.log(items)
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            // console.log(item);
+            item.addEventListener("click", function (event) {
+                // console.log(this);   //--particular element k bujanor jonno "this" keywords use kora hoi --//--particular element
+                console.log(event.target.parentNode.removeChild(event.target)); ///--event tai hocce item --//
+            })
+        }*/
+
+
+
+        document.getElementById("addBtn").addEventListener("click", function (event) {
+            // console.log("addBtn clicked");
+            let parentItem = document.getElementById("my-list");
+            let createNewItem = document.createElement("li");
+            createNewItem.innerText = "New Item Added";
+            // createNewItem.setAttribute("class", "item");
+            parentItem.appendChild(createNewItem);
+        })
+
+        
+        let ul = document.getElementById("my-list").addEventListener("click",function(event) {
+            // console.log(this,event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
+    </script>
+</body>
+
+</html>

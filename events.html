@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring || Event Handler</title>
+    <style>
+        div{
+            border: 2px solid black;
+            width: 200px;
+            height:200px;
+            background-color:pink;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 oncontextmenu="alert('listening from h1 element')">Exploring  Event Handler</h1>
+    <button onclick="eventHandler()" ondblclick="alert('listening from double click')">Click Me</button>
+    <div onmousedown="mouseDown()" onmouseup="mouseUp()" onmouseenter = "alert('listening from mouseenter')" onmouseleave = "alert('listening from mouseleave')"></div>
+
+<p onmousemove="alert('listening from mousemove')" onmouseout="alert('listening from mouseout')">Lorem ipsum dolor sit amet.</p>
+    <script>
+        function eventHandler(){
+            alert('clicked me');
+        }
+
+
+        function mouseDown(){
+            alert('mouseDown');
+        }
+        function mouseUp(){
+            alert('mouseUp');
+        }
+    </script>
+</body>
+</html>
